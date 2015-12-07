@@ -1,0 +1,21 @@
+{
+  "name": "benchmark-chart-libraries",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Amin <marashi.s.amin@gmail.com>"
+  ],
+  "homepage": "https://github.com/aminmarashi/benchmark-chart-libraries",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "Chart.js": "~1.0.2",
+    "jquery": "~2.1.4"
+  }
+}
