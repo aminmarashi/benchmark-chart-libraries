@@ -15,24 +15,39 @@ var options = {
 	]
 };
 var getData = function getData(genericData) {
-	var data = Object.create(options);
-	data.labels = genericData.x;
-	data.datasets[0].data = genericData.y;
-	return data;
+	options.labels = genericData.x;
+	options.datasets[0].data = genericData.y;
+	return options;
 };
-var Chartjs;
 var chart;
 var ctx;
+var updates = 0;
+var chartOptions = {
+	animation: false,
+	bezierCurve : false,
+	datasetFill : false,
+	showTooltips: false,
+	keepAspectRatio: false,
+	pointDot : false,
+	scaleLabel: function(valueContainer){return ''},
+};
+
 var initialize = function initialize(genericData){
 	if ( ctx === undefined ) {
-		$('body').append('<canvas style="width: 50%; height: 50%;" id="' + id + '"></canvas>');
+		$('body').append('<canvas style="width: 500px; height: 500px;" id="' + id + '"></canvas>');
 		ctx = document.getElementById(id).getContext('2d');
+		chart = new Chart(ctx);
 	}
-	var chart = new Chart(ctx).Line(getData(genericData), {animation: false, bezierCurve: false});
+	chart.Line(getData(genericData), chartOptions);
+	updates++;
 };
 
 var terminate = function terminate(){
 	$('#' + id).remove();
+};
+
+var getUpdates = function getUpdates(){
+	return updates;
 };
 
 requirejs(["bower_components/Chart.js/Chart.min.js"], function(Chart) {
@@ -41,6 +56,7 @@ requirejs(["bower_components/Chart.js/Chart.min.js"], function(Chart) {
 		initialize: initialize,
 		update: initialize,
 		terminate: terminate,
+		getUpdates: getUpdates,
 	});
 });
 

@@ -30,9 +30,10 @@ var Generate = function Generate(names) {
 			// add listeners
 			suite.on('cycle', function(event) {
 				console.log(String(event.target));
-				$('#result').append(String(event.target) + '\n');
+				$('#result').append(String(event.target));
 				testCases.forEach(function(testCase, index){
 					if ( testCase.title == event.target.name ) {
+						$('#result').append(' Updates: ' + testCase.getUpdates() + '\n');
 						testCase.terminate();
 					}
 					if ( index < testCases.length - 1 ) {
