@@ -35,7 +35,7 @@ var terminate = function terminate(){
 	$('#' + id).remove();
 };
 
-requirejs(["../bower_components/Chart.js/Chart.min.js"], function(Chart) {
+requirejs(["bower_components/Chart.js/Chart.min.js"], function(Chart) {
 	generate.addTestCase({
 		title: 'Chart.js',
 		initialize: initialize,
