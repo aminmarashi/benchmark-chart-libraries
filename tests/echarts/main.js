@@ -65,7 +65,6 @@ require(
 		$('body').append('<div style="width: 700px; height: 700px;" id="' + id + '"></div>');
 		chart = ec.init(document.getElementById(id));
 		chart.setOption(option);
-		console.log(chart);
 		generate.addTestCase({
 			title: 'ECharts',
 			initialize: initialize,
