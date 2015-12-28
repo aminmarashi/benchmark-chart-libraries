@@ -17,6 +17,7 @@
   "dependencies": {
     "Chart.js": "~1.0.2",
     "jquery": "~2.1.4",
-    "highcharts": "highcharts-release#~4.1.10"
+    "highcharts": "highcharts-release#~4.1.10",
+    "zingchart": "~2.2.2"
   }
 }
